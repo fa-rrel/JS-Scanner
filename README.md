@@ -42,4 +42,4 @@ python3 JS_scanner.py [filejs.txt] --secret --urls
 - `-o` or `--output_file`: Specify the file to save extracted links (default: `extracted_links.txt`).
 
 ## Credits:
-#### > Inspired by various open-source projects!
+#### Inspired by various open-source projects!
