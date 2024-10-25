@@ -7,8 +7,6 @@ This script is an advanced security tool crafted for the modern digital warrior.
 To install JS_Scanner, run the following commands:
 
 ```bash
-apt update
-apt install git python3 python3-pip -y
 git clone https://github.com/fa-rrel/JS-Scanner.git
 cd JS-Scanner
 pip3 install -r requirements.txt
@@ -18,8 +16,13 @@ pip3 install -r requirements.txt
 To run JS-Scanner, use the following command:
 
 ```bash
-python3 JS_Scanner.py -u http://testphp.vulnweb.com/urls.js --secrets --urls
+python3 JS_scanner.py -u http://testphp.vulnweb.com/urls.js --secrets --urls
 ```
+Mass scanning with .txt file :
+```bash
+python3 JS_scanner.py [filejs.txt] --secret --urls
+```
+
 <p align="center">
 <img src="screenshot.png" alt="JS_Scanner"/>
 </p>
