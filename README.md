@@ -11,6 +11,13 @@ git clone https://github.com/fa-rrel/JS-Scanner.git
 cd JS-Scanner
 pip3 install -r requirements.txt
 ```
+
+## Usage JS_Extract
+Mass JS Link Scanner [JS_Extract] is a simple tool made to scan .js file links from a list of URLs automatically. Just provide a .txt file containing a list of target URLs, and the tool will collect all .js file links found on each page!
+<p align="center">
+<img src="screenshot3.png" alt="JS_Scanner"/>
+</p>
+
 ## Usage JS_Scanner :
 
 Find urls with single target :
