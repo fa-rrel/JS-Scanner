@@ -72,16 +72,16 @@ def extract_secrets(js_content):
 
 
 def signal_handler(sig, frame):
-    choice = input(f"{Fore.YELLOW}[INFO]{Style.RESET_ALL} Do you want to close JSNinja? (Y/N): ").strip().lower()
+    choice = input(f"{Fore.YELLOW}[INFO]{Style.RESET_ALL} Do you want to close dude? (Y/N): ").strip().lower()
     if choice == 'y':
-        print(f"{Fore.GREEN}[INFO]{Style.RESET_ALL} Closing JSNinja...")
+        print(f"{Fore.GREEN}[INFO]{Style.RESET_ALL} Closing byee...")
         sys.exit(0)
     else:
         print(f"{Fore.GREEN}[INFO]{Style.RESET_ALL} Continuing execution...")
 
 def main(input_file, output_file, look_for_secrets, look_for_urls, single_url):
-    os.system('cls' if os.name == 'nt' else 'clear')  # Clear the console for Windows or Unix
-    print(logo)  # You might want to print the logo again or a different banner.
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print(logo)
 
     requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
 
