@@ -1,48 +1,28 @@
-<p align="left">
-</p>
-<p align="center">
-<a href="#"><img title="Open Source" src="https://img.shields.io/badge/Open%20Source-%E2%9D%A4-green?style=for-the-badge"></a>
-<a href="https://www.python.org/"><img title="Python" src="https://img.shields.io/badge/Python-3.9%2B-blue?style=for-the-badge"></a>
-<a href="https://github.com/iamunixtz/JSNinja/stargazers"><img title="Stars" src="https://img.shields.io/github/stars/iamunixtz/JSNinja?style=for-the-badge"></a>
-<a href="https://github.com/iamunixtz/JSNinja/issues"><img title="Total Issues" src="https://img.shields.io/github/issues/iamunixtz/JSNinja?style=for-the-badge"></a>
-</p>
+## JS_Scanner - "Scanner hidden secrets and urls in JavaScript!"
 
+This script is an advanced security tool crafted for the modern digital warrior. With the power to unearth hidden URLs and sensitive information from JavaScript files, it empowers security enthusiasts, BugHunters, and developers to stay one step ahead in the quest for a safer web. Equip yourself with this script and turn every line of code into a treasure map of vulnerabilities waiting to be discovered!.
 
-## JSNinja - "Hunting Bugs in JavaScript!"
+### Installation JS_Scanner :
 
-JSNinja is a powerful tool for extracting URLs and sensitive information from JavaScript files. It's designed for security enthusiasts,BugHunters and developers.
-
-<p align="center">
-<img src="jsninja.png" alt="JSNinja"/>
-</p>
-
-### Installation:
-
-To install JSNinja, run the following commands:
+To install JS_Scanner, run the following commands:
 
 ```bash
 apt update
 apt install git python3 python3-pip -y
-git clone https://github.com/iamunixtz/JSNinja.git
-cd JSNinja
+git clone https://github.com/fa-rrel/JS-Scanner.git
+cd JS-Scanner
 pip3 install -r requirements.txt
 ```
+## Usage JS_Scanner :
 
-### Single Command:
-
-```bash
-apt update ; apt install git python3 python3-pip -y ; git clone https://github.com/iamunixtz/JSNinja.git ; cd JSNinja ; pip3 install -r requirements.txt
-```
-
-<br>
-
-## Usage:
-
-To run JSNinja, use the following command:
+To run JS-Scanner, use the following command:
 
 ```bash
-python3 jsninja.py -u http://example.com/script.js --secrets --urls
+python3 JS_Scanner.py -u http://testphp.vulnweb.com/urls.js --secrets --urls
 ```
+<p align="center">
+<img src="screenshot.png" alt="JS_Scanner"/>
+</p>
 
 ### Command-Line Options:
 - `-u` or `--url`: Specify a single JavaScript URL to fetch.
@@ -55,11 +35,3 @@ python3 jsninja.py -u http://example.com/script.js --secrets --urls
 #### [+] Identify sensitive information such as API keys and tokens!
 #### [+] User-friendly interface!
 #### [+] Open Source and actively maintained!
-
-## Credits:
-#### > [Iamunixtz](https://github.com/iamunixtz)
-#### > Inspired by various open-source projects!
-
-
-## License:
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
