@@ -42,7 +42,7 @@ def scan_js_links(file_path, output_path=None):
                 for js in js_files:
                     output_file.write(f"{js}\n")
         except requests.RequestException:
-            # Menghilangkan pesan kesalahan
+
             continue
 
     if output_file:
