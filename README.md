@@ -13,7 +13,15 @@ pip3 install -r requirements.txt
 ```
 ## Usage JS_Scanner :
 
-To run JS-Scanner, use the following command:
+Find urls with single target :
+If you just want to find .js files from a specific URL, you can use curl and grep like this,
+```bash
+curl -s http://testphp.vulnweb.com | grep "\.js"
+```
+<p align="center">
+<img src="screenshot2.png" alt="JS_Scanner"/>
+</p>
+To run JS-Scanner, use the following command :
 
 ```bash
 python3 JS_scanner.py -u http://testphp.vulnweb.com/urls.js --secrets --urls
