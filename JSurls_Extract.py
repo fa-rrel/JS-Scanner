@@ -30,7 +30,7 @@ def scan_js_links(file_path, output_path=None):
         try:
             response = requests.get(url)
             response.raise_for_status()
-            js_files = re.findall(r'https://[^"]*\.js', response.text)
+            js_files = re.findall(r'https?://[^"\s]+\.js', response.text)
             js_links[url] = js_files
 
             print(f"{Fore.GREEN}{Style.BRIGHT}[{url}]{Style.RESET_ALL} -> {Fore.YELLOW}Found {len(js_files)} JS links:")
@@ -40,12 +40,10 @@ def scan_js_links(file_path, output_path=None):
             if output_file:
                 output_file.write(f"[{url}] -> Found {len(js_files)} JS links:\n")
                 for js in js_files:
-                    output_file.write(f"  - {js}\n")
+                    output_file.write(f"{js}\n")
         except requests.RequestException:
-            error_msg = f"{Fore.RED}{Style.BRIGHT}[ERROR]{Style.RESET_ALL} Couldn't reach {url}"
-            print(error_msg)
-            if output_file:
-                output_file.write(f"[ERROR] Couldn't reach {url}\n")
+            # Menghilangkan pesan kesalahan
+            continue
 
     if output_file:
         output_file.close()
