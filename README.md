@@ -41,21 +41,6 @@ python3 JS_scanner.py [filejs.txt] --secret --urls
 - `--urls`: Extract URLs from the JavaScript content.
 - `-o` or `--output_file`: Specify the file to save extracted links (default: `extracted_links.txt`).
 
-## Features:
-### [+] Extract URLs from JavaScript files!
-### [+] Identify sensitive information such as API keys and tokens!
-### [+] User-friendly interface!
-### [+] Open Source and actively maintained!
-### [+] Multi-Platform Compatibility: Works on Windows, macOS, and Linux!
-### [+] Customizable Output Options: Save extracted data in JSON, CSV, or plain text formats!
-### [+] Speed and Efficiency: Quickly process large JavaScript files without losing accuracy!
-### [+] Integration with Popular Tools: Enhance your workflow with easy integration!
-### [+] Detailed Reporting: Generate comprehensive reports for audits and assessments!
-### [+] Community-Driven Development: Join a growing community and contribute to enhancements!
-### [+] Regular Updates and Enhancements: Benefit from frequent updates based on user feedback!
-### [+] Tutorials and Documentation: Access extensive resources for quick onboarding!
-### [+] Error Handling and Logging: Keep track of your processes with robust logging features!
-
 ## Credits:
 #### > [Iamunixtz](https://github.com/iamunixtz)
 #### > Inspired by various open-source projects!
