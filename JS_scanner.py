@@ -13,15 +13,14 @@ from pystyle import Center, Colors, Colorate, System, Write
 colorama.init(autoreset=True)
 
 logo = """
-      _ ____     ____                                  
-    | / ___|   / ___|  ___ __ _ _ __  _ __   ___ _ __ 
- _  | \___ \   \___ \ / __/ _` | '_ \| '_ \ / _ \ '__|
-| |_| |___) |   ___) | (_| (_| | | | | | | |  __/ |   
- \___/|____/___|____/ \___\__,_|_| |_|_| |_|\___|_|   
-          |_____|                                     
-✔ By : Ghost_sec (github.com/fa-rrel)
-✔ Telegram Group t.me/@ghostsec00
-✔ Youtube channel : https://www.youtube.com/@ghost_sec            
+******************************************
+░▀▀█░█▀▀░░░░░█▀▀░█▀▀░█▀█░█▀█░█▀█░█▀▀░█▀▄
+░░░█░▀▀█░░░░░▀▀█░█░░░█▀█░█░█░█░█░█▀▀░█▀▄
+░▀▀░░▀▀▀░▀▀▀░▀▀▀░▀▀▀░▀░▀░▀░▀░▀░▀░▀▀▀░▀░▀
+ ➠ By : Ghost_sec (github.com/fa-rrel)  
+ ➠ Telegram Group t.me/@ghostsec00      
+ ➠ Youtube channel : ghost_sec            
+******************************************             
 """
 
 print(Colorate.Diagonal(Colors.purple_to_red, logo))
@@ -32,20 +31,31 @@ def extract_links_from_js(js_content):
 
 def extract_secrets(js_content):
     secret_patterns = {
-        'AWS Access Key': r'(?i)AWS_Access_Key\s*:\s*[\'"]?([A-Z0-9]{20})[\'"]?',
-        'AWS Secret Key': r'(?i)AWS_Secret_Key\s*:\s*[\'"]?([A-Za-z0-9/+=]{40})[\'"]?',
-        'Stripe Secret Key': r'(?i)Stripe_Secret_Key\s*:\s*[\'"]?([A-Za-z0-9]{24})[\'"]?',
-        'GitHub Token': r'(?i)GitHub Token\s*:\s*[\'"]?([A-Za-z0-9]{36})[\'"]?',
-        'Facebook Token': r'(?i)Facebook_Token\s*:\s*[\'"]?([A-Za-z0-9\.]+)[\'"]?',
-        'Telegram Bot Token': r'(?i)Telegram Bot Token\s*:\s*[\'"]?([A-Za-z0-9:]+)[\'"]?',
-        'Google Maps API Key': r'(?i)Google Maps API Key\s*:\s*[\'"]?([A-Za-z0-9_-]+)[\'"]?',
-        'Google reCAPTCHA Key': r'(?i)Google reCAPTCHA Key\s*:\s*[\'"]?([A-Za-z0-9_-]+)[\'"]?',
-        'API Key': r'(?i)API_Key\s*:\s*[\'"]?([A-Za-z0-9_-]{32,})[\'"]?',
-        'Secret Key': r'(?i)Secret_Key\s*:\s*[\'"]?([A-Za-z0-9_-]{32,})[\'"]?',
-        'Auth Domain': r'(?i)Auth_Domain\s*:\s*[\'"]?([A-Za-z0-9\-]+\.[a-z]{2,})[\'"]?',
-        'Database URL': r'(?i)Database_URL\s*:\s*[\'"]?([^\'" ]+)[\'"]?',
-        'Storage Bucket': r'(?i)Storage_Bucket\s*:\s*[\'"]?([^\'" ]+)[\'"]?',
-        'Cloud Storage API Key': r'(?i)Cloud Storage API Key\s*:\s*[\'"]?([A-Za-z0-9_-]{32,})[\'"]?'
+    'google_api': r'AIza[0-9A-Za-z-_]{35}',
+    'google_captcha': r'6L[0-9A-Za-z-_]{38}|^6[0-9a-zA-Z_-]{39}$',
+    'google_oauth': r'ya29\.[0-9A-Za-z\-_]+',
+    'amazon_aws_access_key_id': r'A[SK]IA[0-9A-Z]{16}',
+    'amazon_mws_auth_token': r'amzn\.mws\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}',
+    'amazon_aws_url': r'\b(?:s3\.amazonaws\.com|[a-zA-Z0-9_-]+\.s3\.amazonaws\.com)\b',
+    'facebook_access_token': r'EAACEdEose0cBA[0-9A-Za-z]+',
+    'authorization_basic': r'\bbasic\s+[a-zA-Z0-9=:_\+\/-]+\b',
+    'authorization_bearer': r'\bbearer\s+[a-zA-Z0-9_\-\.=:_\+\/]+\b',
+    'authorization_api': r'\bapi[key|\s*]+\s*[a-zA-Z0-9_\-]+\b',
+    'mailgun_api_key': r'\bkey-[0-9a-zA-Z]{32}\b',
+    'twilio_api_key': r'\bSK[0-9a-fA-F]{32}\b',
+    'twilio_account_sid': r'\bAC[a-zA-Z0-9_\-]{32}\b',
+    'twilio_app_sid': r'\bAP[a-zA-Z0-9_\-]{32}\b',
+    'paypal_braintree_access_token': r'access_token\$production\$[0-9a-z]{16}\$[0-9a-f]{32}',
+    'square_oauth_secret': r'\bsq0csp-[0-9A-Za-z\-_]{43}|sq0[a-z]{3}-[0-9A-Za-z\-_]{22,43}\b',
+    'square_access_token': r'\bsqOatp-[0-9A-Za-z\-_]{22}|EAAA[a-zA-Z0-9]{60}\b',
+    'stripe_standard_api': r'\bsk_live_[0-9a-zA-Z]{24}\b',
+    'stripe_restricted_api': r'\brk_live_[0-9a-zA-Z]{24}\b',
+    'github_access_token': r'(?<=://)[a-zA-Z0-9_-]*:[a-zA-Z0-9_\-]+@github\.com',
+    'rsa_private_key': r'-----BEGIN RSA PRIVATE KEY-----[\s\S]+?-----END RSA PRIVATE KEY-----',
+    'ssh_dsa_private_key': r'-----BEGIN DSA PRIVATE KEY-----[\s\S]+?-----END DSA PRIVATE KEY-----',
+    'ssh_dc_private_key': r'-----BEGIN EC PRIVATE KEY-----[\s\S]+?-----END EC PRIVATE KEY-----',
+    'pgp_private_block': r'-----BEGIN PGP PRIVATE KEY BLOCK-----[\s\S]+?-----END PGP PRIVATE KEY BLOCK-----',
+    'json_web_token': r'\beyJ[A-Za-z0-9-_=]+\.[A-Za-z0-9-_=]+\.[A-Za-z0-9-_.+/=]*\b',
     }
 
     found_secrets = {}
@@ -55,7 +65,6 @@ def extract_secrets(js_content):
             unique_matches = list(set(matches))
             found_secrets[key] = unique_matches
 
-    # Add pattern for object notation
     object_pattern = r'(?i)const\s+[A-Z_]+_KEYS\s*=\s*\{([^}]+)\}'
     object_matches = re.findall(object_pattern, js_content)
     
