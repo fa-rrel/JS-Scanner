@@ -48,6 +48,9 @@ python3 JS_scanner.py [filejs.txt] --secret --urls
 - `--urls`: Extract URLs from the JavaScript content.
 - `-o` or `--output_file`: Specify the file to save extracted links (default: `extracted_links.txt`).
 
+### Cooming soon Extension :
+[JS Extractor (Raw)](https://raw.githubusercontent.com/fa-rrel/JS-Scanner/main/JS%20Extractor.mp4)
+
 ## Credits:
 #### [Iamunixtz](https://github.com/iamunixtz)
 #### Inspired by various open-source projects!
