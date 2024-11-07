@@ -56,6 +56,8 @@ def extract_secrets(js_content):
     'ssh_dc_private_key': r'-----BEGIN EC PRIVATE KEY-----[\s\S]+?-----END EC PRIVATE KEY-----',
     'pgp_private_block': r'-----BEGIN PGP PRIVATE KEY BLOCK-----[\s\S]+?-----END PGP PRIVATE KEY BLOCK-----',
     'json_web_token': r'\beyJ[A-Za-z0-9-_=]+\.[A-Za-z0-9-_=]+\.[A-Za-z0-9-_.+/=]*\b',
+    'jira_token': r'ATATT3[a-zA-Z0-9_\-+=]{184,195}$',
+    'azure_openai_api_key': r'[a-f0-9]{32}$',
     }
 
     found_secrets = {}
